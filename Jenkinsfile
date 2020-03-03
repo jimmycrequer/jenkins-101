@@ -1,10 +1,19 @@
 pipeline {
     agent any
+
+    environment {
+        NAME = 'Jimmy'
+    }
+
     stages {
         stage('Test') {
             steps {
                 sh 'echo "Fail!"; exit 1'
             }
+        }
+        stage('Hello') {
+            echo "Hello ${NAME}"
+            sh 'printenv'
         }
     }
     post {
