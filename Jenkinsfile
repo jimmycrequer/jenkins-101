@@ -12,8 +12,10 @@ pipeline {
             }
         }
         stage('Hello') {
-            echo "Hello ${NAME}"
-            sh 'printenv'
+	    steps {
+                echo "Hello ${NAME}"
+                sh 'printenv'
+            }
         }
     }
     post {
